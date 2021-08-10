@@ -2,6 +2,7 @@ const express = require('express')
 const bp = require('body-parser');
 const { json } = require('body-parser');
 const morgan = require('morgan');
+const path = require('path')
 
 const lionsRouter = require('./lions');
 const tigersRouter = require('./tigers');
@@ -16,7 +17,7 @@ app.use('/lions', lionsRouter);
 app.use('/tigers', tigersRouter);
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(path.resolve('./index.html'));
 })
 
 
